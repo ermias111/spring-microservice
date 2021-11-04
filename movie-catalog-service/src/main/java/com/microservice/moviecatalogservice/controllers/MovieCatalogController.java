@@ -17,13 +17,25 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
+
+// we need to copy it so that we can map the coming
+// rating data in rating class, this might be redundant, but we need it because this is how microservice
+// application works. we get a lot of benefits along with it's downsides.
+
+
+// This class consumes all the other services
 @RestController
 @RequestMapping("/catalog")
 public class MovieCatalogController {
+
+    // A rest client library from springframework, It is used to make a rest call to other services
+    // so that it can get the required data. Since we only need it to be created once in the our service
+    // we create a bean and inject it wherever we need it.
     @Autowired
     private RestTemplate restTemplate;
 
-    // Using Web Client
+    // Using Web Client, It is another way to create a rest client. It is more recent and it uses reactive programming( asynchronous )
 //    @Autowired
 //    private WebClient.Builder webClientBuilder;
 
@@ -31,7 +43,9 @@ public class MovieCatalogController {
     public List<CatalogItem> getCatalog(@PathVariable("userId") String userId){
 
 
-
+        // Call rating-data-service with it's service name and map the resulting list of ratings to the class UserRating.
+        // In this kind of call, eureka-server looks for the service name and it provides the actual url and port number of the specified
+        // service instance.
         UserRating userRating =  restTemplate.getForObject("http://rating-data-service/rating/users/4", UserRating.class);
 
 

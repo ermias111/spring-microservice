@@ -1,6 +1,6 @@
 package com.microservice.moviecatalogservice.domains;
 
-
+// A copy domain class from movie-info-service,
 public class Movie {
     public String movieId;
     public String name;

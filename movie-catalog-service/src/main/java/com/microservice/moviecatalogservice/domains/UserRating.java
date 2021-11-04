@@ -2,6 +2,7 @@ package com.microservice.moviecatalogservice.domains;
 
 import java.util.List;
 
+// A copy domain class from rating-data-service,
 public class UserRating {
     private List<Rating> ratingList;
 

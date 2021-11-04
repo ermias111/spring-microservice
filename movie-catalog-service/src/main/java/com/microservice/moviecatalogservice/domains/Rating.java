@@ -1,5 +1,6 @@
 package com.microservice.moviecatalogservice.domains;
 
+// A copy domain class from rating-data-service,
 public class Rating {
 
     public String movieId;
