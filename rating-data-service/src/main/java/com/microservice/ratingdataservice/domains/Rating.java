@@ -1,4 +1,4 @@
-package com.microservice.ratingdataservice.domain;
+package com.microservice.ratingdataservice.domains;
 
 public class Rating {
 

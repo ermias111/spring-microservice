@@ -1,7 +1,8 @@
-package com.microservice.ratingdataservice.controller;
+package com.microservice.ratingdataservice.controllers;
 
-import com.microservice.ratingdataservice.domain.Rating;
-import com.microservice.ratingdataservice.domain.UserRating;
+
+import com.microservice.ratingdataservice.domains.Rating;
+import com.microservice.ratingdataservice.domains.UserRating;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

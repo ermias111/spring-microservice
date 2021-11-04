@@ -1,4 +1,4 @@
-package com.microservice.ratingdataservice.domain;
+package com.microservice.ratingdataservice.domains;
 
 import java.util.List;
 
