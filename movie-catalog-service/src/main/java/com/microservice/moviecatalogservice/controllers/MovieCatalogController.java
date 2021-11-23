@@ -4,6 +4,11 @@ import com.microservice.moviecatalogservice.domains.CatalogItem;
 import com.microservice.moviecatalogservice.domains.Movie;
 import com.microservice.moviecatalogservice.domains.Rating;
 import com.microservice.moviecatalogservice.domains.UserRating;
+import com.microservice.moviecatalogservice.services.MovieInfo;
+import com.microservice.moviecatalogservice.services.UserRatingInfo;
+import com.netflix.discovery.converters.Auto;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,6 +34,12 @@ import java.util.stream.Collectors;
 @RequestMapping("/catalog")
 public class MovieCatalogController {
 
+    @Autowired
+    MovieInfo movieInfo;
+
+    @Autowired
+    UserRatingInfo userRatingInfo;
+
     // A rest client library from springframework, It is used to make a rest call to other services
     // so that it can get the required data. Since we only need it to be created once in the our service
     // we create a bean and inject it wherever we need it.
@@ -46,7 +57,7 @@ public class MovieCatalogController {
         // Call rating-data-service with it's service name and map the resulting list of ratings to the class UserRating.
         // In this kind of call, eureka-server looks for the service name and it provides the actual url and port number of the specified
         // service instance.
-        UserRating userRating =  restTemplate.getForObject("http://rating-data-service/rating/users/4", UserRating.class);
+        UserRating userRating =  userRatingInfo.getUserRating(userId);
 
 
 
@@ -60,10 +71,14 @@ public class MovieCatalogController {
 //                    .bodyToMono(Movie.class)
 //                    .block();
 
-            Movie movie = restTemplate.getForObject("http://movie-info-service/movies/" + rating.getMovieId(), Movie.class);
 
-            return new CatalogItem(movie.getName(), movie.getMovieId(), rating.getRating());
+            return movieInfo.getCatalogItem(rating);
         }).collect(Collectors.toList());
+    }
+
+
+    public List<CatalogItem> getFallbackCatalog(@PathVariable("userId") String string){
+        return Arrays.asList(new CatalogItem("No movie", "", 0));
     }
 
 }
