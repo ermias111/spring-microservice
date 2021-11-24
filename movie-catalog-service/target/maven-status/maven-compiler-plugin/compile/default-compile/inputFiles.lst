@@ -1,0 +1,6 @@
+/home/ermias/Public/Spring/movie catalog webapp/movie-catalog-service/src/main/java/com/microservice/moviecatalogservice/controllers/MovieCatalogController.java
+/home/ermias/Public/Spring/movie catalog webapp/movie-catalog-service/src/main/java/com/microservice/moviecatalogservice/domains/CatalogItem.java
+/home/ermias/Public/Spring/movie catalog webapp/movie-catalog-service/src/main/java/com/microservice/moviecatalogservice/domains/Movie.java
+/home/ermias/Public/Spring/movie catalog webapp/movie-catalog-service/src/main/java/com/microservice/moviecatalogservice/MovieCatalogServiceApplication.java
+/home/ermias/Public/Spring/movie catalog webapp/movie-catalog-service/src/main/java/com/microservice/moviecatalogservice/domains/Rating.java
+/home/ermias/Public/Spring/movie catalog webapp/movie-catalog-service/src/main/java/com/microservice/moviecatalogservice/domains/UserRating.java

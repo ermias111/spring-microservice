@@ -1,0 +1,6 @@
+com/microservice/moviecatalogservice/domains/Rating.class
+com/microservice/moviecatalogservice/domains/CatalogItem.class
+com/microservice/moviecatalogservice/controllers/MovieCatalogController.class
+com/microservice/moviecatalogservice/MovieCatalogServiceApplication.class
+com/microservice/moviecatalogservice/domains/Movie.class
+com/microservice/moviecatalogservice/domains/UserRating.class
