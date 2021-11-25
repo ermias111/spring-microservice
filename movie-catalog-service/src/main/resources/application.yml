@@ -1,0 +1,16 @@
+server:
+  port: 8083
+
+spring:
+  application.name: movie-catalog-service
+
+security:
+  oauth2:
+    client:
+      accessTokenUri: http://localhost:8080/oauth/token
+      userAuthorizationUri: http://localhost:8080/oauth/authorize
+      clientId: theClient
+      clientSecret: thisissecret
+
+    resource:
+      userInfoUri: http://localhost:8080/user

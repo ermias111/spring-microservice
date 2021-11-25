@@ -1,0 +1,16 @@
+server:
+  port: 8082
+
+spring:
+  application.name: rating-data-service
+
+security:
+  oauth2:
+    client:
+      accessTokenUri: http://localhost:8080/oauth/token
+      userAuthorizationUri: http://localhost:8080/oauth/authorize
+      clientId: ratingdata
+      clientSecret: 1234
+
+    resource:
+      userInfoUri: http://localhost:8080/user
